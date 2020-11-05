@@ -1,4 +1,5 @@
 FROM golang:alpine AS builder
+WORKDIR $GOPATH
 ADD . .
 RUN apk update
 RUN apk add --no-cache git
@@ -11,7 +12,7 @@ RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o a.out
 
 FROM scratch
 
-COPY --from=builder go/a.out go/a.out
-ENTRYPOINT ["go/a.out"]
+COPY --from=builder /go/a.out /go/a.out
+ENTRYPOINT ["/go/a.out"]
 EXPOSE 8000
 
