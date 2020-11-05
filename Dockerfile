@@ -6,13 +6,14 @@ RUN apk add --no-cache git
 RUN go get -d -v \
     github.com/lib/pq \
     github.com/julienschmidt/httprouter
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o a.out
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o a.out
 
 
 
 FROM scratch
 
-COPY --from=builder /go/a.out /go/a.out
-ENTRYPOINT ["/go/a.out"]
+COPY --from=builder /go/a.out .
+
+ENTRYPOINT ["./a.out"]
 EXPOSE 8000
 
