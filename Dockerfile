@@ -11,7 +11,7 @@ RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o a.out
 
 FROM scratch
 
-COPY --from=builder go/a.out a.out
-ENTRYPOINT ["a.out"]
+COPY --from=builder go/a.out go/a.out
+ENTRYPOINT ["go/a.out"]
 EXPOSE 8000
 
