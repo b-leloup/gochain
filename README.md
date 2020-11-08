@@ -17,8 +17,8 @@ make
     - [X] Build go
     - [X] Use Binary
     - [X] Expose port
- - [ ] Use the service (`docker-compose.yml`)
+ - [X] Use the service (`docker-compose.yml`)
     - [X] Build docker image
     - [X] Configure go and run the app on port 8000
     - [X] Create postgresql database and link it
-    - [ ] Bonus: Create a swagger ui with swaggerapi
+    - [X] Bonus: Create a swagger ui with swaggerapi
