@@ -20,5 +20,5 @@ make
  - [ ] Use the service (`docker-compose.yml`)
     - [X] Build docker image
     - [X] Configure go and run the app on port 8000
-    - [ ] Create postgresql database and link it
+    - [X] Create postgresql database and link it
     - [ ] Bonus: Create a swagger ui with swaggerapi

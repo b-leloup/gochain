@@ -9,8 +9,6 @@ services:
         restart: unless-stopped
         volumes:
             - 'data:/var/lib/postgresql/data'
-        ports:
-            - 5432:5432/tcp
         environment:
             - POSTGRES_PASSWORD=oskour
 
@@ -26,6 +24,6 @@ services:
         environment:
             - IP=0.0.0.0
             - PORT=8000
-            - POSTGRES_URL=0.0.0.0
+            - POSTGRES_URL='db'
             - POSTGRES_PASSWORD=oskour
 
